@@ -1,5 +1,13 @@
 package com.example.wudfilm.wudfilm;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -17,18 +25,24 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import android.os.AsyncTask;
+import android.widget.TextView;
+
+
 public class MainActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new ListFragment())
-                    .commit();
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            if (savedInstanceState == null) {
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.container, new ListFragment())
+                        .commit();
+            }
+            new Title().execute();
         }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -72,7 +86,8 @@ public class MainActivity extends AppCompatActivity {
                     "13 Going On Thirty",
                     "Pulp Fiction",
                     "Harry Potter",
-                    "Fast and Furious"
+                    "Fast and Furious",
+                    "Harry Potter","Harry Potter","Harry Potter","Harry Potter","Harry Potter"
             };
 
             List<String> movieList = new ArrayList<String>(
@@ -92,4 +107,55 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+    // Description AsyncTask
+    private class Title extends AsyncTask<Void, Void, Void> {
+
+        // URL Address
+        String url = "http://www.androidbegin.com";
+        ProgressDialog mProgressDialog;
+        String desc;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            mProgressDialog = new ProgressDialog(MainActivity.this);
+            mProgressDialog.setTitle("Android Basic JSoup Tutorial");
+            mProgressDialog.setMessage("Loading...");
+            mProgressDialog.setIndeterminate(false);
+            mProgressDialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                // Connect to the web site
+                Document document = Jsoup.connect("https://www.google.com/").get();
+                // Using Elements to get the Meta data
+                //title = document.title();
+                Elements description = document
+                        .select("a.gb_P");
+                // Locate the content attribute
+                desc = description.text();
+                System.out.print(desc);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        @Override
+        protected void onPostExecute(Void result) {
+            // Set title into TextView
+           // TextView txttitle = (TextView) findViewById(R.id.titletxt);
+            //txttitle.setText(title);
+            System.out.print(desc);
+            mProgressDialog.dismiss();
+        }
+    }
+
+
 }
+
+
+
