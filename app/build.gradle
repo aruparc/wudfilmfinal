@@ -26,4 +26,6 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
+    // jsoup HTML parser library @ http://jsoup.org/
+    //compile 'org.jsoup:jsoup:1.9.2'
 }
