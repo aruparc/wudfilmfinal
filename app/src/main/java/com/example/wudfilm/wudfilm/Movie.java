@@ -7,9 +7,9 @@ package com.example.wudfilm.wudfilm;
 public class Movie {
 
         String title;
-        int runtime;
+        String runtime;
         String synopsis;
-        int showtime;
+        String showtime;
 
         //For iteration 2
         String MPAArating;
@@ -18,7 +18,7 @@ public class Movie {
         boolean interested;
 
         //constructor
-        public Movie(String title, int runtime, int showtime,String synopsis, String MPAArating, String linkM,
+        public Movie(String title, String runtime, String showtime,String synopsis, String MPAArating, String linkM,
                         String linkR, String linkI, String linkYT, String poster, boolean interested) {
             this.title = title;
             this.runtime = runtime;
@@ -38,9 +38,9 @@ public class Movie {
 
         //getters
         public String getTitle(){return title;}
-        public int getRuntime(){return runtime;}
+        public String getRuntime(){return runtime;}
         public String getSynopsis(){return synopsis;}
-        public int getShowtime(){return showtime;}
+        public String getShowtime(){return showtime;}
         //iteration 2 & 3
         public String getMPAArating(){return MPAArating;}
         public String getLinkM(){return linkM;}
@@ -51,9 +51,9 @@ public class Movie {
 
         //setters
         public void setTitle(String title){this.title = title;}
-        public void setRuntime(int runtime){this.runtime = runtime;}
+        public void setRuntime(String runtime){this.runtime = runtime;}
         public void setSynopsis(String synopsis){this.synopsis = synopsis;}
-        public void setShowtime(int showtime){this.showtime = showtime;}
+        public void setShowtime(String showtime){this.showtime = showtime;}
 
         //iteration 2 & 3
         public void setMPAArating(String MPAArating) {this.MPAArating = MPAArating;}

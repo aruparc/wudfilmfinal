@@ -3,165 +3,318 @@
 
     <item
         is-multidex="true"
-        jar="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jar="/home/charles/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.1.3/f6c3aed1cdfa21b5c1737c915186ea93a95a58bd/jackson-core-2.1.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="f6c3aed1cdfa21b5c1737c915186ea93a95a58bd">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-core-2.1.3_e711a5f0216a85296197ea5fcf57a6d32d6b9e20/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_8046d8bfd7b49c0d1930985bd172e242fd9fc2f2/classes.dex" />
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_54cc2e938366d32ea911de54280e256fa433f1e5/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jar="/home/charles/.gradle/caches/modules-2/files-2.1/com.google.apis/google-api-services-sheets/v4-rev34-1.22.0/27dc879779dce1dc15d68637b8641640f02ed83e/google-api-services-sheets-v4-rev34-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="27dc879779dce1dc15d68637b8641640f02ed83e">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-api-services-sheets-v4-rev34-1.22.0_86427ff3571fb426570bbbb512e8fcd2bdcbe64f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_30c40b3776fc51dc1ba4ec9f20d8cad998043bf3/classes.dex" />
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_febe3c8769f75f5567781d529ca31228acfb59ea/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_35c98c428813448c4c9522c75bc9643eccffe8a2/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_406e2766ef164e2b9e8f96c10f98342a4df8b947/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/libs/jsoup-1.9.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="28e5375920a4f6e73123e45ab6ad3b8bc93b0869">
-        <dex dex="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/2/jsoup-1.9.2_5193b261f91abad8d1a24077ef5459c1025c5283/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_1a44be3ca62b2dc7adf580217030e82becde5e6d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_6f1c2283f3f4ba1c1fc4ec452601e047762e3dc8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_08b82fcc5ae6fd5d621a419af6b9233d35a2f37c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="a1a3fe511be3c60a08eb7ebb072a65b8af82eaa6">
-        <dex dex="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_4a256f640ab6106491bd3c52000e129dc00a164f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_5c5492afe9e7abbd24486341e58b481197de66f8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="d58fb74558d4d2c4e168968e9a8bfed704d1aa60">
-        <dex dex="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_df8f3e7d1f7545a5243926fcfaf7c47e73693dab/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_10a1afa372bc1778e9363bc3c1ed0b8d32711f3c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_8d0eeb63234d45c4d249b5c756125f9136d9c3cd/classes.dex" />
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_6500f37da7d00d3ea86a5d77204bea909f82bd79/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/susanyang/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_86fca69e49e2a171f5311795707597d59b56362f/classes.dex" />
+        sha1="94d9cedd04b124aed044ac71c451a292856d854c">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-9.0.2_20e28fbd79d555db2a397b15cba88a82058a3fa6/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_98579e65e07bd5f7c46b444c3db7998ec785ab9f/classes.dex" />
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_73720d385828a9b71f6c62700d74bc9e6c19b873/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jar="/home/charles/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client-android/1.22.0/7a0fe12b7d8189a821934d6f9d6586d00180e461/google-api-client-android-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7a0fe12b7d8189a821934d6f9d6586d00180e461">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-api-client-android-1.22.0_5364063f28299ee5af5f275b310cb62ab5ae8d94/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_857ffdd3e73b1f124cc6a7d64653e89594236263/classes.dex" />
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_c582141fe45ff8060091ba50f3b640e3cb822b9a/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_5662428a8cf832cb7ba8bd902bb23535793da98c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/.gradle/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client/1.22.0/1d63f369ac78e4838a3197147012026e791008cb/google-oauth-client-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="1d63f369ac78e4838a3197147012026e791008cb">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-oauth-client-1.22.0_eaec0e36ee84857c1cc7e8d687871aff782c8b1a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="4022261eeea0d92eb2997a68d2c1f084a16abad9">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-9.0.2_f1f786359523c11ca35a696d34791b52a9c4ddf4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_f2cff98b3106e925638893a4efcfbbd71aab6c9a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="aec1bc54964a85d851c2c1b1cb7f90f7dbd755ab">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-9.0.2_7689cfce53595c37195ebe1303be3ae8b9fbbc0e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client/1.22.0/d441fc58329c4a4c067acec04ac361627f66ecc8/google-http-client-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d441fc58329c4a4c067acec04ac361627f66ecc8">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-http-client-1.22.0_ccb66448486f0aee45b9c1a112dfa39350458498/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="060a7157438a0b1b0706b99c430fb3ecbc5a79a4">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-9.0.2_6e5e5ab7ab37c55364365efbc2a57142f8594be5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/.gradle/caches/modules-2/files-2.1/com.google.guava/guava-jdk5/17.0/463f8378feba44df7ba7cd9272d01837dad62b36/guava-jdk5-17.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="463f8378feba44df7ba7cd9272d01837dad62b36">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/guava-jdk5-17.0_22abcca0af6c8b58657599c88ae28a08f6bd9739/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client/1.22.0/244350c0c845c583717ade13f5666a452fd0cfa/google-api-client-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0244350c0c845c583717ade13f5666a452fd0cfa">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-api-client-1.22.0_8d77c3dac996ea7c6c41b1e0762997f87f04a29c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_4c608a1c165a05f4c6930885fd3cfbdd0cfe654d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_bf04bc6f7c4f92ecceb2f524e93ea6641bc5dec5/classes.dex" />
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_3149b933066a52b30285627bed2e99772fb011e2/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jar="/home/charles/Android/wudfilmmobile/app/libs/jsoup-1.9.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="28e5375920a4f6e73123e45ab6ad3b8bc93b0869">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/2/jsoup-1.9.2_0c9f20ce57079711d4af8e688b1b7ae5788d42dc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9919563cffd8e3732e944d3c437d4b9575a08448">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-9.0.2_145725c783021b4308e8e438db9d7fed51627bc4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_b2a9d5a4aee9fb2df469a792340605716d0d26b5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="f79fc2dbfb3acbed9b6485a992557932bf7d80df">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_a4d1050d8eb8579e6b3550fecf25793cbbfe2955/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_0114ad6988a886f4e4facba281b4154af46830b1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_9e596ace61640614580c095af61fc4af9cbad747/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/jsr305-2.0.1_ef87e0e3b74c8c45fd64a3046b73a192c43aac11/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-jackson2/1.22.0/cc014d64ae11117e159d334c99d9c246d9b36f44/google-http-client-jackson2-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="cc014d64ae11117e159d334c99d9c246d9b36f44">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-http-client-jackson2-1.22.0_831d4fd1d6b6d692ef234dc8c7d098ab75ea784b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-android/1.22.0/6d1e1a76a16a244ab2f41775791be1dd0ec2878a/google-http-client-android-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="6d1e1a76a16a244ab2f41775791be1dd0ec2878a">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-http-client-android-1.22.0_9f35b58e1e75374fb2bedb55de975e01da717600/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/9.0.2/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="829c6e46cb221c2102801221c648b77113743e81">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-base-9.0.2_fab97d86bf5709dd193e8bb389f0eb2c8b62d8b2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="/Users/susanyang/Desktop/AndroidStudioProjects/wudfilmmobile/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_2b6d10574c895cb62e9344d7289b40aa8edd60b8/classes.dex" />
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_172a326955b0814cef9110ad80ac3aa2261c1199/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/pub.devrel/easypermissions/0.1.5/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="2ffd97c466e0021572f3c7333839c71ecdf393ed">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/pub.devrel-easypermissions-0.1.5_64551bb933b4a6dd066992bcb927d69f126afcaa/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_89d0acf1c4c0198cdc1f9e5244feeefdfbd501f8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b8f765da2f95342f5c0feaaa265e29f4a24f6ef0">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_e548aeeeae1767632db03321d4f3eae027f21924/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/charles/Android/wudfilmmobile/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/home/charles/Android/wudfilmmobile/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_e682b21b271480c90404405c2c12e80253b15057/classes.dex" />
     </item>
 
 </items>
