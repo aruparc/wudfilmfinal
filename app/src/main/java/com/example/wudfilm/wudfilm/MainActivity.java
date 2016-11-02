@@ -1,49 +1,22 @@
 package com.example.wudfilm.wudfilm;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-
-import java.io.IOException;
-import java.io.InputStream;
-
-import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import android.support.v7.app.ActionBarActivity;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import android.os.AsyncTask;
-import android.widget.TextView;
-
-import com.example.wudfilm.wudfilm.MovieListFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-            if (savedInstanceState == null) {
-                getSupportFragmentManager().beginTransaction()
-                        .add(R.id.container, new MovieListFragment())
-                        .commit();
-            }
-            //new Title().execute();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.container, new MovieListFragment())
+                    .commit();
         }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -57,65 +30,37 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.email:
+                setContentView(R.layout.activity_main);
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.container, new EmailFragment())
+                        .commit();
+                return true;
+            case R.id.home:
+                setContentView(R.layout.activity_main);
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.container, new MovieListFragment())
+                        .commit();
+                return true;
+            case R.id.settings:
+                setContentView(R.layout.activity_main);
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.container, new SettingsFragment())
+                        .commit();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
-
-//    // Description AsyncTask
-//    private class Title extends AsyncTask<Void, Void, Void> {
-//
-//        // URL Address
-//        String url = "http://www.androidbegin.com";
-//        ProgressDialog mProgressDialog;
-//        String desc;
-
-//        @Override
-//        protected void onPreExecute() {
-//            super.onPreExecute();
-//            mProgressDialog = new ProgressDialog(MainActivity.this);
-//            mProgressDialog.setTitle("Android Basic JSoup Tutorial");
-//            mProgressDialog.setMessage("Loading...");
-//            mProgressDialog.setIndeterminate(false);
-//            mProgressDialog.show();
-//        }
-
-//        @Override
-//        protected Void doInBackground(Void... params) {
-//            try {
-//                // Connect to the web site
-//                Document document = Jsoup.connect("https://www.google.com/").get();
-//                // Using Elements to get the Meta data
-//                //title = document.title();
-//                Elements description = document
-//                        .select("a.gb_P");
-//                // Locate the content attribute
-//                desc = description.text();
-//                System.out.print(desc);
-//
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//            return null;
-//        }
-//        @Override
-//        protected void onPostExecute(Void result) {
-//            // Set title into TextView
-//           // TextView txttitle = (TextView) findViewById(R.id.titletxt);
-//            //txttitle.setText(title);
-//            System.out.print(desc);
-//            mProgressDialog.dismiss();
-//        }
-//    }
-
-
 }
+
+
+
+
 
 
 
