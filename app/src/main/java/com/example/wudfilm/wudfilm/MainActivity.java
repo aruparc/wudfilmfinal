@@ -25,6 +25,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -39,9 +41,11 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -60,6 +64,7 @@ import pub.devrel.easypermissions.EasyPermissions;
 public class MainActivity extends AppCompatActivity
     implements EasyPermissions.PermissionCallbacks {
 
+    ProgressDialog mProgressDialog;
     GoogleAccountCredential mCredential;
     private TextView mOutputText;
     private Button mCallApiButton;
@@ -444,6 +449,55 @@ public class MainActivity extends AppCompatActivity
             } else {
                 mOutputText.setText("Request cancelled.");
             }
+        }
+    }
+
+    // Description AsyncTask
+    private class Description extends AsyncTask<Void, Void, Void> {
+        String desc;
+        String url = "https://union.wisc.edu/events-and-activities/event-calendar/event/captain-fantastic-2016";
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            mProgressDialog = new ProgressDialog(MainActivity.this);
+            mProgressDialog.setMessage("Loading...");
+            mProgressDialog.setIndeterminate(false);
+            mProgressDialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                Document document = Jsoup.connect(url).get();
+                Elements description = document.select("div[class=vevent] > p > span");
+                desc = description.text();
+                Elements img = document.select("li[class=remove-bottom] > img");
+                String imgSrc = img.attr("src");
+                Elements yt = document.select("iframe");
+                String ytSrc = yt.attr("src");
+
+                // Download image from URL
+                //InputStream input = new java.net.URL(imgSrc).openStream();
+                // Decode Bitmap
+                //Bitmap bitmap = BitmapFactory.decodeStream(input);
+
+                Iterator<Movie> iter = movies.iterator();
+                if(iter.hasNext()){
+                    Movie hold = iter.next();
+                    hold.setSynopsis(desc);
+                    hold.setPoster(imgSrc);
+                    hold.setLinkYT(ytSrc);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            mProgressDialog.dismiss();
         }
     }
 

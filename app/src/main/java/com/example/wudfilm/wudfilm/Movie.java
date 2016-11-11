@@ -47,6 +47,7 @@ public class Movie {
         public String getLinkR(){return linkR;}
         public String getLinkI(){return linkI;}
         public String getLinkYT(){return linkYT;}
+        public String getPoster(){return poster;}
         public boolean getInterested(){return interested;}
 
         //setters
@@ -61,6 +62,7 @@ public class Movie {
         public void setLinkR(String linkR){this.linkR = linkR;}
         public void setLinkI(String linkI){this.linkI = linkI;}
         public void setLinkYT(String linkYT){this.linkYT = linkYT;}
+        public void setPoster(String poster){this.poster = poster;}
         public void setInterested(boolean interested) {this.interested = interested;}
 
 }
