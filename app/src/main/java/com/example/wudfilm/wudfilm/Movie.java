@@ -10,6 +10,7 @@ public class Movie {
         String runtime;
         String synopsis;
         String showtime;
+        String date;
 
         //For iteration 2
         String MPAArating;
@@ -18,12 +19,13 @@ public class Movie {
         boolean interested;
 
         //constructor
-        public Movie(String title, String runtime, String showtime,String synopsis, String MPAArating, String linkM,
+        public Movie(String title, String date, String runtime, String showtime,String synopsis, String MPAArating, String linkM,
                         String linkR, String linkI, String linkYT, String poster, boolean interested) {
             this.title = title;
             this.runtime = runtime;
             this.synopsis = synopsis;
             this.showtime = showtime;
+            this.date = date;
 
             //iteration 2 & 3 things
             this.MPAArating = "";
@@ -41,6 +43,7 @@ public class Movie {
         public String getRuntime(){return runtime;}
         public String getSynopsis(){return synopsis;}
         public String getShowtime(){return showtime;}
+        public String getDate(){return date;}
         //iteration 2 & 3
         public String getMPAArating(){return MPAArating;}
         public String getLinkM(){return linkM;}
@@ -50,11 +53,13 @@ public class Movie {
         public String getPoster(){return poster;}
         public boolean getInterested(){return interested;}
 
+
         //setters
         public void setTitle(String title){this.title = title;}
         public void setRuntime(String runtime){this.runtime = runtime;}
         public void setSynopsis(String synopsis){this.synopsis = synopsis;}
         public void setShowtime(String showtime){this.showtime = showtime;}
+        public void setDate(String date){this.date = date;}
 
         //iteration 2 & 3
         public void setMPAArating(String MPAArating) {this.MPAArating = MPAArating;}

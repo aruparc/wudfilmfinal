@@ -45,7 +45,7 @@ public class MovieListFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         ArrayList<String> displayM = new ArrayList<String>();
         for(Movie m : MainActivity.movies){
-            displayM.add("Movie: " + m.title + "\nShowtime: " + m.showtime + "\nRuntime: " + m.runtime);
+            displayM.add("Movie: " + m.title + "\nShowtime: " + m.date + " " + m.showtime + "\nRuntime: " + m.runtime);
         }
 
         ArrayAdapter<String> mMovieAdapter = new ArrayAdapter<String>(
