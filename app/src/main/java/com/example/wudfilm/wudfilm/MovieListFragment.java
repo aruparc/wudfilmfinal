@@ -6,17 +6,28 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
+import android.widget.ExpandableListView.OnGroupClickListener;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
+import java.util.*;
 
 /**
  * A movie list fragment
  */
-public class MovieListFragment extends Fragment {
+public class MovieListFragment extends Fragment{
 
-    ArrayList<Movie> movies;
+    HashMap<String, List<String>> Movies_category;
+    List<String> Movies_list;
+    ExpandableListView Exp_list;
+    MoviesAdapter adapter;
+
     public MovieListFragment() {
     }
 
@@ -43,21 +54,70 @@ public class MovieListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        ArrayList<String> displayM = new ArrayList<String>();
-        for(Movie m : MainActivity.movies){
-            displayM.add("Movie: " + m.title + "\nShowtime: " + m.date + " " + m.showtime + "\nRuntime: " + m.runtime);
+
+        HashMap<String, List<String>> MoviesDetails = new HashMap<String, List<String>>();
+
+        Locale loc = Locale.US;
+        TimeZone tz = TimeZone.getTimeZone("CST");
+        Calendar cal = Calendar.getInstance(tz, loc);
+        Calendar cal2 = Calendar.getInstance(tz, loc);
+        cal2.add(cal2.DAY_OF_YEAR, 21);
+
+        //creates the hashmap
+        HashMap<String, Integer> map = new HashMap<String, Integer>();
+        map.put("Jan", 0);
+        map.put("Feb", 1);
+        map.put("Mar", 2);
+        map.put("Apr", 3);
+        map.put("May", 4);
+        map.put("Jun", 5);
+        map.put("Jul", 6);
+        map.put("Aug", 7);
+        map.put("Sep", 8);
+        map.put("Oct", 9);
+        map.put("Nov", 10);
+        map.put("Dec", 11);
+
+        for(Movie m : MainActivity.movies) {
+            Calendar cal3 = Calendar.getInstance();
+            String[] tokens = m.date.split("[-]+");
+            if(tokens[1].matches("\\d+")) {
+                cal3.set(2016, map.get(tokens[0]), Integer.parseInt(tokens[1]) + 1);
+            }else{
+                cal3.set(2016, map.get(tokens[1]), Integer.parseInt(tokens[0]) + 1);
+            }
+            if (cal3.after(cal) && cal3.before(cal2)) {
+                List<String> synopsisRating = new ArrayList<String>();
+                synopsisRating.add("Synopsis: " + m.synopsis);
+                synopsisRating.add(m.poster);
+                synopsisRating.add(m.linkYT);
+                MoviesDetails.put(m.title + "\n\n" + m.date + " " + m.showtime + " " + m.runtime, synopsisRating);
+            }
         }
 
-        ArrayAdapter<String> mMovieAdapter = new ArrayAdapter<String>(
-                getActivity(),
-                R.layout.list_item_movie,
-                R.id.list_item_movie_textview,
-                displayM
-        );
-
-        ListView listView = (ListView) rootView.findViewById(
-                R.id.listview_movie);
-        listView.setAdapter(mMovieAdapter);
+        Exp_list = (ExpandableListView) rootView.findViewById(R.id.exp_list);
+        Movies_list = new ArrayList<String>(MoviesDetails.keySet());
+        adapter = new MoviesAdapter(getActivity(), MoviesDetails, Movies_list);
+        Exp_list.setAdapter(adapter);
+        //Exp_list.setOnGroupClickListener(this);
         return rootView;
     }
+
+
+    /*@Override
+    public boolean onGroupClick(ExpandableListView parent, View view, int groupPosition, long id) {
+        try {
+            Document document = Jsoup.connect("https://union.wisc.edu/events-and-activities/event-calendar/event/captain-fantastic-2016").get();
+            Elements description = document.select("div[class=vevent] > p > span");
+            String desc = description.text();
+            Elements img = document.select("li[class=remove-bottom] > img");
+            String imgSrc = img.attr("src");
+            Elements yt = document.select("iframe");
+            String ytSrc = yt.attr("src");
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        return false;
+    }*/
+
 }

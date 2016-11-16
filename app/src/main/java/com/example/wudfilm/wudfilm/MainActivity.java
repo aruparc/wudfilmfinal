@@ -45,28 +45,21 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.ExpandableListView.OnGroupClickListener;
 
 
 import java.io.InputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
+import java.lang.Object;
 
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
-
-//get the date
-import java.util.Calendar;
-import java.lang.Object;
-import java.util.AbstractMap;
-import java.util.Map;
-import java.util.*;
 
 public class MainActivity extends AppCompatActivity
     implements EasyPermissions.PermissionCallbacks {
@@ -394,24 +387,7 @@ public class MainActivity extends AppCompatActivity
          * @throws IOException
          */
 
-        Calendar cal = Calendar.getInstance();
-        //creates the hashmap
-        HashMap<String, Integer> map = new HashMap<String, Integer>();
-
         private List<String> getDataFromApi() throws IOException {
-
-            map.put("Jan", 1);
-            map.put("Feb", 2);
-            map.put("Mar", 3);
-            map.put("Apr", 4);
-            map.put("May", 5);
-            map.put("Jun", 6);
-            map.put("Jul", 7);
-            map.put("Aug", 8);
-            map.put("Sep", 9);
-            map.put("Oct", 10);
-            map.put("Nov", 11);
-            map.put("Dec", 12);
 
             String spreadsheetId = "1wxMmpqMirNvGQJgcOy1UwrfFfx5yIx3IEIPfKtZPW8A";
             String range = "Sheet1!B2:O";
@@ -424,7 +400,7 @@ public class MainActivity extends AppCompatActivity
             if (values != null) {
                 results.add("Date, Time, Title");
                 for (List row : values) {
-                    if (row.size() >= 13 && !row.get(12).equals(" ")) {
+                    if (row.size() >= 13 && !row.get(12).equals(" ") && !row.get(12).equals("")) {
                         String time = (String) row.get(2);
                         String date = (String) row.get(0);
                         String title = (String) row.get(4);
@@ -527,6 +503,30 @@ public class MainActivity extends AppCompatActivity
             mProgressDialog.dismiss();
         }
     }
+
+    /*public class GroupClick extends AsyncTask<Void,Void,Void>{ //change Object to required type
+        private OnGroupClickListener listener;
+
+        public GroupClick(OnGroupClickListener listener){
+            this.listener=listener;
+        }
+
+        // required methods
+        protected Void doInBackground(Void... params){
+            try {
+                Document document = Jsoup.connect("https://union.wisc.edu/events-and-activities/event-calendar/event/captain-fantastic-2016").get();
+                Elements description = document.select("div[class=vevent] > p > span");
+                String desc = description.text();
+                Elements img = document.select("li[class=remove-bottom] > img");
+                String imgSrc = img.attr("src");
+                Elements yt = document.select("iframe");
+                String ytSrc = yt.attr("src");
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+            return null;
+        }
+    }*/
 
 }
 
