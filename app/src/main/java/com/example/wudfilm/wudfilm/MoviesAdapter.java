@@ -10,7 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
+import android.widget.ImageView;
+import android.graphics.Bitmap;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -31,6 +34,9 @@ public class MoviesAdapter extends BaseExpandableListAdapter {
     private Context ctx;
     private HashMap<String, List<String>> Movies_Category;
     private List<String> Movies_List;
+    private Bitmap img;
+    private int lastExpandedGroupPosition;
+    private ExpandableListView listView;
 
     public MoviesAdapter(Context ctx, HashMap<String, List<String>> Movies_Category, List<String> Movies_List){
         this.ctx = ctx;
@@ -94,6 +100,8 @@ public class MoviesAdapter extends BaseExpandableListAdapter {
             LayoutInflater inflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.child_layout, parentView, false);
         }
+        ImageView imgViewChild = (ImageView) convertView.findViewById(R.id.img);
+        imgViewChild.setImageBitmap(img);
         TextView child_textview = (TextView) convertView.findViewById(R.id.child_txt);
 
         child_textview.setText(child_title);
@@ -104,4 +112,7 @@ public class MoviesAdapter extends BaseExpandableListAdapter {
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return false;
     }
+
+    public void setImg(Bitmap img){this.img = img;}
 }
+

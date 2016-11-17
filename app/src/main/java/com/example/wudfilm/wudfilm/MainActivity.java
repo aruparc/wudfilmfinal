@@ -400,7 +400,7 @@ public class MainActivity extends AppCompatActivity
             if (values != null) {
                 results.add("Date, Time, Title");
                 for (List row : values) {
-                    if (row.size() >= 13 && !row.get(12).equals(" ") && !row.get(12).equals("")) {
+                    if (row.size() >= 13 && !row.get(12).equals(" ") && !row.get(12).equals("") && row.get(9).equals("WUD")) {
                         String time = (String) row.get(2);
                         String date = (String) row.get(0);
                         String title = (String) row.get(4);
@@ -454,79 +454,6 @@ public class MainActivity extends AppCompatActivity
             }
         }
     }
-
-    // Description AsyncTask
-    private class Description extends AsyncTask<Void, Void, Void> {
-        String desc;
-        String url = "https://union.wisc.edu/events-and-activities/event-calendar/event/captain-fantastic-2016";
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            mProgressDialog = new ProgressDialog(MainActivity.this);
-            mProgressDialog.setMessage("Loading...");
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            try {
-                Document document = Jsoup.connect(url).get();
-                Elements description = document.select("div[class=vevent] > p > span");
-                desc = description.text();
-                Elements img = document.select("li[class=remove-bottom] > img");
-                String imgSrc = img.attr("src");
-                Elements yt = document.select("iframe");
-                String ytSrc = yt.attr("src");
-
-                // Download image from URL
-                //InputStream input = new java.net.URL(imgSrc).openStream();
-                // Decode Bitmap
-                //Bitmap bitmap = BitmapFactory.decodeStream(input);
-
-                Iterator<Movie> iter = movies.iterator();
-                if(iter.hasNext()){
-                    Movie hold = iter.next();
-                    hold.setSynopsis(desc);
-                    hold.setPoster(imgSrc);
-                    hold.setLinkYT(ytSrc);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            mProgressDialog.dismiss();
-        }
-    }
-
-    /*public class GroupClick extends AsyncTask<Void,Void,Void>{ //change Object to required type
-        private OnGroupClickListener listener;
-
-        public GroupClick(OnGroupClickListener listener){
-            this.listener=listener;
-        }
-
-        // required methods
-        protected Void doInBackground(Void... params){
-            try {
-                Document document = Jsoup.connect("https://union.wisc.edu/events-and-activities/event-calendar/event/captain-fantastic-2016").get();
-                Elements description = document.select("div[class=vevent] > p > span");
-                String desc = description.text();
-                Elements img = document.select("li[class=remove-bottom] > img");
-                String imgSrc = img.attr("src");
-                Elements yt = document.select("iframe");
-                String ytSrc = yt.attr("src");
-            }catch(IOException e){
-                e.printStackTrace();
-            }
-            return null;
-        }
-    }*/
 
 }
 

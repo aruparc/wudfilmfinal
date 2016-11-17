@@ -1,5 +1,7 @@
 package com.example.wudfilm.wudfilm;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by susanyang on 10/22/16.
  */
@@ -16,6 +18,7 @@ public class Movie {
         String MPAArating;
         String linkM, linkR, linkI, linkYT;
         String poster;
+        Bitmap img;
         boolean interested;
 
         //constructor
