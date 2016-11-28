@@ -1,28 +1,16 @@
 package com.example.wudfilm.wudfilm;
 
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Typeface;
-import android.os.AsyncTask;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.ImageView;
 import android.graphics.Bitmap;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-import org.w3c.dom.Text;
-
-import java.io.IOException;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -32,13 +20,10 @@ import java.util.List;
 public class MoviesAdapter extends BaseExpandableListAdapter {
 
     private Context ctx;
-    private HashMap<String, List<String>> Movies_Category;
+    private HashMap<String, List<Object>> Movies_Category;
     private List<String> Movies_List;
-    private Bitmap img;
-    private int lastExpandedGroupPosition;
-    private ExpandableListView listView;
 
-    public MoviesAdapter(Context ctx, HashMap<String, List<String>> Movies_Category, List<String> Movies_List){
+    public MoviesAdapter(Context ctx, HashMap<String, List<Object>> Movies_Category, List<String> Movies_List){
         this.ctx = ctx;
         this.Movies_Category = Movies_Category;
         this.Movies_List = Movies_List;
@@ -50,7 +35,7 @@ public class MoviesAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return Movies_Category.get(Movies_List.get(groupPosition)).size();
+        return 1;
     }
 
     @Override
@@ -60,13 +45,12 @@ public class MoviesAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getChild(int parent, int child) {
-
         return Movies_Category.get(Movies_List.get(parent)).get(child);
     }
 
     @Override
     public long getGroupId(int groupPosition) {
-        return 0;
+        return groupPosition;
     }
 
     @Override
@@ -76,7 +60,7 @@ public class MoviesAdapter extends BaseExpandableListAdapter {
 
     @Override
     public boolean hasStableIds() {
-        return false;
+        return true;
     }
 
     @Override
@@ -95,16 +79,14 @@ public class MoviesAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int parent, int child, boolean lastChild, View convertView, ViewGroup parentView) {
-        String child_title = (String) getChild(parent, child);
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.child_layout, parentView, false);
         }
         ImageView imgViewChild = (ImageView) convertView.findViewById(R.id.img);
-        imgViewChild.setImageBitmap(img);
+        imgViewChild.setImageBitmap((Bitmap) Movies_Category.get(Movies_List.get(parent)).get(1));
         TextView child_textview = (TextView) convertView.findViewById(R.id.child_txt);
-
-        child_textview.setText(child_title);
+        child_textview.setText((String) Movies_Category.get(Movies_List.get(parent)).get(0));
         return convertView;
     }
 
@@ -112,7 +94,5 @@ public class MoviesAdapter extends BaseExpandableListAdapter {
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return false;
     }
-
-    public void setImg(Bitmap img){this.img = img;}
 }
 

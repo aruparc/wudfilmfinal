@@ -27,20 +27,19 @@ import java.util.*;
 /**
  * A movie list fragment
  */
-public class MovieListFragment extends Fragment implements ExpandableListView.OnGroupClickListener {
+public class MovieListFragment extends Fragment implements ExpandableListView.OnGroupClickListener{
 
     List<String> Movies_list;
-    List<String> synopsisRating;
+    List<Object> synopsisRating;
     List<Movie> shownM;
     ExpandableListView Exp_list;
     MoviesAdapter adapter;
-    HashMap<String, List<String>> MoviesDetails;
+    HashMap<String, List<Object>> MoviesDetails;
     View rootView;
     boolean done;
-    ProgressDialog prog;
 
     public MovieListFragment() {
-        MoviesDetails = new LinkedHashMap<String, List<String>>();
+        MoviesDetails = new LinkedHashMap<String, List<Object>>();
         shownM = new ArrayList<Movie>();
     }
 
@@ -72,7 +71,7 @@ public class MovieListFragment extends Fragment implements ExpandableListView.On
         TimeZone tz = TimeZone.getTimeZone("CST");
         Calendar cal = Calendar.getInstance(tz, loc);
         Calendar cal2 = Calendar.getInstance(tz, loc);
-        cal2.add(cal2.DAY_OF_YEAR, 14);
+        cal2.add(cal2.DAY_OF_YEAR, 7);
 
         //creates the hashmap
         HashMap<String, Integer> map = new HashMap<String, Integer>();
@@ -97,10 +96,10 @@ public class MovieListFragment extends Fragment implements ExpandableListView.On
                 cal3.set(2016, map.get(tokens[1]), Integer.parseInt(tokens[0]));
             }
             if (cal3.after(cal) && cal3.before(cal2)) {
-                synopsisRating = new ArrayList<String>();
-                //synopsisRating.add("Synopsis: ");
+                synopsisRating = new ArrayList<Object>();
                 if(!m.synopsis.equals("")){
                     synopsisRating.add(m.synopsis);
+                    synopsisRating.add(m.img);
                     //synopsisRating.add(m.linkYT);
                 }
                 shownM.add(m);
@@ -117,17 +116,14 @@ public class MovieListFragment extends Fragment implements ExpandableListView.On
 
     @Override
     public boolean onGroupClick(ExpandableListView parent, View view, int groupPosition, long id) {
-        done = false;
         new getDets(shownM.get(groupPosition)).execute();
         while(done == false){}
         done = false;
-        Exp_list.setAdapter(adapter);
         return false;
     }
 
     public class getDets extends AsyncTask<Void, View, Void> {
         Movie m;
-        ExpandableListView exp;
 
         public getDets(Movie m){
             this.m = m;
@@ -135,25 +131,21 @@ public class MovieListFragment extends Fragment implements ExpandableListView.On
 
         @Override
         protected Void doInBackground(Void... params) {
+            done = false;
             if(m.synopsis.equals("")) {
                 try {
                     String title = m.getTitle();
-                    title = title.replaceAll("\\*SUBTITLE SUNDAY\\* - ", "");
+                    title = title.replaceAll("\\*SUBTITLE SUNDAY\\* - ", "").replaceAll(":", "").replaceAll("'", "");
                     String[] t = title.split("[ ]+");
                     String convert = "";
-                    if (t[0].charAt(t[0].length() - 1) == ':') {
-                        t[0] = t[0].replaceAll(":", "");
-                    }
                     convert = convert.concat(t[0]);
                     for (int i = 1; i < t.length; i++) {
                         if (t[i].charAt(0) == '(') {
                             t[i] = t[i].replaceAll("\\(", "").replaceAll("\\)", "");
-                            convert = convert.concat("-" + t[i]);
                         } else if (t[i].equals("w/")) {
                             break;
-                        } else {
-                            convert = convert.concat("-" + t[i]);
                         }
+                        convert = convert.concat("-" + t[i]);
                     }
                     String url = "https://union.wisc.edu/events-and-activities/event-calendar/event/" + convert;
                     Document document = Jsoup.connect(url).get();
@@ -164,25 +156,19 @@ public class MovieListFragment extends Fragment implements ExpandableListView.On
                     Elements yt = document.select("iframe");
                     m.setLinkYT(yt.attr("src"));
                     m.img = BitmapFactory.decodeStream(new URL("https://union.wisc.edu" + m.poster).openConnection().getInputStream());
-                    adapter.setImg(m.img);
+                    //adapter.setImg(m.img);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 onPostExecute();
             }
-            adapter.setImg(m.img);
             done = true;
             return null;
         }
 
-        protected void onPreExecute(){
-            //prog = ProgressDialog.show(getContext(), "loading...", "", true);
-        }
-
         protected Void onPostExecute(){
             MoviesDetails.get(m.title + "\n\n" + m.date + " " + m.showtime + " " + m.runtime).add(m.synopsis);
-            //MoviesDetails.get(m.title + "\n\n" + m.date + " " + m.showtime + " " + m.runtime).add(m.linkYT);
-            //prog.dismiss();
+            MoviesDetails.get(m.title + "\n\n" + m.date + " " + m.showtime + " " + m.runtime).add(m.img);
             return null;
         }
     }
