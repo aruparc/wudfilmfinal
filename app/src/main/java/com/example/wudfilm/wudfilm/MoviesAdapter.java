@@ -10,8 +10,11 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 import android.widget.ImageView;
 import android.graphics.Bitmap;
+import android.widget.Button;
 import java.util.HashMap;
 import java.util.List;
+import android.content.Intent;
+import android.net.Uri;
 
 /**
  * Created by susanyang on 11/15/16.
@@ -78,7 +81,7 @@ public class MoviesAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getChildView(int parent, int child, boolean lastChild, View convertView, ViewGroup parentView) {
+    public View getChildView(final int parent, int child, boolean lastChild, View convertView, ViewGroup parentView) {
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.child_layout, parentView, false);
@@ -87,6 +90,16 @@ public class MoviesAdapter extends BaseExpandableListAdapter {
         imgViewChild.setImageBitmap((Bitmap) Movies_Category.get(Movies_List.get(parent)).get(1));
         TextView child_textview = (TextView) convertView.findViewById(R.id.child_txt);
         child_textview.setText((String) Movies_Category.get(Movies_List.get(parent)).get(0));
+        Button but = (Button) convertView.findViewById(R.id.button);
+        //String type = (String) Movies_Category.get(Movies_List.get(parent)).get(2);
+        //String[] type2 = type.split(".");
+        //but.setText(type2[1]);
+        but.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent browser = new Intent(Intent.ACTION_VIEW, Uri.parse((String) Movies_Category.get(Movies_List.get(parent)).get(2)));
+                ctx.startActivity(browser);
+            }
+        });
         return convertView;
     }
 

@@ -100,7 +100,7 @@ public class MovieListFragment extends Fragment implements ExpandableListView.On
                 if(!m.synopsis.equals("")){
                     synopsisRating.add(m.synopsis);
                     synopsisRating.add(m.img);
-                    //synopsisRating.add(m.linkYT);
+                    synopsisRating.add(m.linkYT);
                 }
                 shownM.add(m);
                 MoviesDetails.put(m.title + "\n\n" + m.date + " " + m.showtime + " " + m.runtime, synopsisRating);
@@ -169,6 +169,7 @@ public class MovieListFragment extends Fragment implements ExpandableListView.On
         protected Void onPostExecute(){
             MoviesDetails.get(m.title + "\n\n" + m.date + " " + m.showtime + " " + m.runtime).add(m.synopsis);
             MoviesDetails.get(m.title + "\n\n" + m.date + " " + m.showtime + " " + m.runtime).add(m.img);
+            MoviesDetails.get(m.title + "\n\n" + m.date + " " + m.showtime + " " + m.runtime).add(m.linkYT);
             return null;
         }
     }
