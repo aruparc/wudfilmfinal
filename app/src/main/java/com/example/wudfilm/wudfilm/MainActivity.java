@@ -60,6 +60,10 @@ import java.lang.Object;
 
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
+import com.google.api.services.sheets.v4.model.ValueRange;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity
     implements EasyPermissions.PermissionCallbacks {
@@ -127,9 +131,9 @@ public class MainActivity extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.email:
                 setContentView(R.layout.activity_main);
-                getSupportFragmentManager().beginTransaction()
-                        .add(R.id.container, new EmailFragment())
-                        .commit();
+                getSupportFragmentManager().beginTransaction();
+                        Intent intent = new Intent(MainActivity.this, EmailFormWebView.class);
+                        MainActivity.this.startActivity(intent);
                 return true;
             case R.id.home:
                 setContentView(R.layout.activity_main);
