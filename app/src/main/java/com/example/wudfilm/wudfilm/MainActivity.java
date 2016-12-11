@@ -152,10 +152,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public void submitButtonOnClick(View view) {
-        Button submit= (Button) view;
-        ((Button) view).setText("Submitted!");
-    }
 
     /**
      * Attempt to call the API, after verifying that all the preconditions are
