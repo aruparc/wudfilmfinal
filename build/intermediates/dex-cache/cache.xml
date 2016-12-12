@@ -106,7 +106,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="4a2753da9b870c3707d4771537ee784f4128ca6a">
+        sha1="bf146c46188b842959b0281f15d1fad4e50f3278">
         <dex dex="/home/charles/Android/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_6a21423da30315271e88d9a0ed3b49c3d3c0df0b/classes.dex" />
     </item>
     <item
@@ -124,7 +124,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="c0187386b1e407b70a4d725f94836e3052d836e9">
+        sha1="e2efb72f06674fea350479806c4ebf62f6b98f11">
         <dex dex="/home/charles/Android/wudfilm/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_12aa9de531541f6c0391d202de4ea07ed77ca731/classes.dex" />
     </item>
     <item

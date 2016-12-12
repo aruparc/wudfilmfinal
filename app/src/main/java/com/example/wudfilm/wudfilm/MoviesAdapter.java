@@ -86,14 +86,13 @@ public class MoviesAdapter extends BaseExpandableListAdapter {
             LayoutInflater inflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.child_layout, parentView, false);
         }
+        //set poster, description, and youtube link button
         ImageView imgViewChild = (ImageView) convertView.findViewById(R.id.img);
         imgViewChild.setImageBitmap((Bitmap) Movies_Category.get(Movies_List.get(parent)).get(1));
         TextView child_textview = (TextView) convertView.findViewById(R.id.child_txt);
         child_textview.setText((String) Movies_Category.get(Movies_List.get(parent)).get(0));
         Button but = (Button) convertView.findViewById(R.id.button);
-        //String type = (String) Movies_Category.get(Movies_List.get(parent)).get(2);
-        //String[] type2 = type.split(".");
-        //but.setText(type2[1]);
+        //listen for clicks on button and let user choose preferred app to open link
         but.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent browser = new Intent(Intent.ACTION_VIEW, Uri.parse((String) Movies_Category.get(Movies_List.get(parent)).get(2)));

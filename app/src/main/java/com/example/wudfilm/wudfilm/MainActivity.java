@@ -11,51 +11,27 @@ import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.ExponentialBackOff;
 import com.google.api.services.sheets.v4.SheetsScopes;
-import com.google.api.services.sheets.v4.model.*;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 
 import android.Manifest;
 import android.accounts.AccountManager;
-import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
-import android.text.method.ScrollingMovementMethod;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ExpandableListView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.ExpandableListView.OnGroupClickListener;
 
-
-import java.io.InputStream;
 import java.io.IOException;
-import java.util.*;
 import java.lang.Object;
 
 import pub.devrel.easypermissions.AfterPermissionGranted;
@@ -67,11 +43,8 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity
     implements EasyPermissions.PermissionCallbacks {
-
-    ProgressDialog mProgressDialog;
     GoogleAccountCredential mCredential;
     private TextView mOutputText;
-    private Button mCallApiButton;
     ProgressDialog mProgress;
     public static ArrayList<Movie> movies;
 
@@ -79,8 +52,6 @@ public class MainActivity extends AppCompatActivity
     static final int REQUEST_AUTHORIZATION = 1001;
     static final int REQUEST_GOOGLE_PLAY_SERVICES = 1002;
     static final int REQUEST_PERMISSION_GET_ACCOUNTS = 1003;
-
-    private static final String BUTTON_TEXT = "Call Google Sheets API";
     private static final String PREF_ACCOUNT_NAME = "accountName";
     private static final String[] SCOPES = { SheetsScopes.SPREADSHEETS_READONLY };
 
@@ -358,7 +329,7 @@ public class MainActivity extends AppCompatActivity
      * An asynchronous task that handles the Google Sheets API call.
      * Placing the API calls in their own task ensures the UI stays responsive.
      */
-    private class MakeRequestTask extends AsyncTask<Void, Void, List<String>> {
+    private class MakeRequestTask extends AsyncTask<Void, Void, Void> {
         private com.google.api.services.sheets.v4.Sheets mService = null;
         private Exception mLastError = null;
 
@@ -376,14 +347,14 @@ public class MainActivity extends AppCompatActivity
          * @param params no parameters needed for this task.
          */
         @Override
-        protected List<String> doInBackground(Void... params) {
+        protected Void doInBackground(Void... params) {
             try {
-                return getDataFromApi();
+                getDataFromApi();
             } catch (Exception e) {
                 mLastError = e;
                 cancel(true);
-                return null;
             }
+            return null;
         }
 
         /**
@@ -392,50 +363,31 @@ public class MainActivity extends AppCompatActivity
          * @throws IOException
          */
 
-        private List<String> getDataFromApi() throws IOException {
+        private void getDataFromApi() throws IOException {
 
             String spreadsheetId = "1wxMmpqMirNvGQJgcOy1UwrfFfx5yIx3IEIPfKtZPW8A";
             String range = "Sheet1!B2:O";
-            List<String> results = new ArrayList<String>();
             movies = new ArrayList<Movie>();
             ValueRange response = this.mService.spreadsheets().values()
                     .get(spreadsheetId, range)
                     .execute();
             List<List<Object>> values = response.getValues();
             if (values != null) {
-                results.add("Date, Time, Title");
                 for (List row : values) {
-                    if (row.size() >= 13 && !row.get(12).equals(" ") && !row.get(12).equals("") && row.get(9).equals("WUD")) {
-                        String time = (String) row.get(2);
-                        String date = (String) row.get(0);
-                        String title = (String) row.get(4);
-                        String runtime = (String) row.get(12);
-                        movies.add(new Movie(title, date, runtime, time, "", "", "",
-                                "", "", "", "", false));
+                    // check to make sure the cell's entry is a film,
+                    // if so create it as a movie and add it to the main list
+                    if (row.size() >= 13 && !row.get(12).equals(" ") && !row.get(12).equals("")
+                            && row.get(9).equals("WUD")) {
+                        String time = (String) row.get(2), date = (String) row.get(0),
+                                title = (String) row.get(4), runtime = (String) row.get(12);
+                        movies.add(new Movie(title, date, runtime, time));
                     }
                 }
             }
-            return results;
-        }
-
-
-
-        @Override
-        protected void onPreExecute() {
-            mOutputText.setText("");
-            mProgress.show();
-        }
-
-        @Override
-        protected void onPostExecute(List<String> output) {
-            mProgress.hide();
-            if (output == null || output.size() == 0) {
-                mOutputText.setText("No results returned.");
-            } else {
-                getSupportFragmentManager().beginTransaction()
-                        .add(R.id.container, new MovieListFragment())
-                        .commit();
-            }
+            //create and show initial list (this list does not hold synopsis, poster, or ytlink)
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.container, new MovieListFragment())
+                    .commit();
         }
 
         @Override

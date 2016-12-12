@@ -1,8 +1,5 @@
 package com.example.wudfilm.wudfilm;
 
-import android.app.ProgressDialog;
-import android.app.Activity;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,9 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.ExpandableListView.OnGroupClickListener;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -69,32 +63,32 @@ public class MovieListFragment extends Fragment implements ExpandableListView.On
 
         Locale loc = Locale.US;
         TimeZone tz = TimeZone.getTimeZone("CST");
+        //set date bounds of films shown on main screen
         Calendar cal = Calendar.getInstance(tz, loc);
         Calendar cal2 = Calendar.getInstance(tz, loc);
-        cal2.add(cal2.DAY_OF_YEAR, 7);
+        //OFFSET FOR DEMO
+        cal.add(cal.DAY_OF_YEAR, -30);
+        cal2.add(cal2.DAY_OF_YEAR, -15);
 
-        //creates the hashmap
+        //hashmap to translate spreadsheet data to Calendar object
         HashMap<String, Integer> map = new HashMap<String, Integer>();
-        map.put("Jan", 0);
-        map.put("Feb", 1);
-        map.put("Mar", 2);
-        map.put("Apr", 3);
-        map.put("May", 4);
-        map.put("Jun", 5);
-        map.put("Jul", 6);
-        map.put("Aug", 7);
-        map.put("Sep", 8);
-        map.put("Oct", 9);
-        map.put("Nov", 10);
-        map.put("Dec", 11);
+        map.put("Jan", 0); map.put("Feb", 1); map.put("Mar", 2); map.put("Apr", 3);
+        map.put("May", 4); map.put("Jun", 5); map.put("Jul", 6); map.put("Aug", 7);
+        map.put("Sep", 8); map.put("Oct", 9); map.put("Nov", 10); map.put("Dec", 11);
+        //add movies within bounds to list
         for (Movie m : MainActivity.movies) {
             Calendar cal3 = Calendar.getInstance();
             String[] tokens = m.date.split("[-]+");
+            //inconsistant listing of month and day (parse by checking if first token is an int)
             if (tokens[1].matches("\\d+")) {
                 cal3.set(2016, map.get(tokens[0]), Integer.parseInt(tokens[1]));
             } else {
                 cal3.set(2016, map.get(tokens[1]), Integer.parseInt(tokens[0]));
             }
+            //OFFSET FOR DEMO
+            cal3.add(cal3.DAY_OF_YEAR, -16);
+            //if we've already performed the second webcrawl add acquired
+            // data to fragment on its creation
             if (cal3.after(cal) && cal3.before(cal2)) {
                 synopsisRating = new ArrayList<Object>();
                 if(!m.synopsis.equals("")){
@@ -106,6 +100,7 @@ public class MovieListFragment extends Fragment implements ExpandableListView.On
                 MoviesDetails.put(m.title + "\n\n" + m.date + " " + m.showtime + " " + m.runtime, synopsisRating);
             }
         }
+        //setup fragment view and listen for clicks on each group element
         Exp_list = (ExpandableListView) rootView.findViewById(R.id.exp_list);
         Movies_list = new ArrayList<String>(MoviesDetails.keySet());
         adapter = new MoviesAdapter(getActivity(), MoviesDetails, Movies_list);
@@ -117,6 +112,8 @@ public class MovieListFragment extends Fragment implements ExpandableListView.On
     @Override
     public boolean onGroupClick(ExpandableListView parent, View view, int groupPosition, long id) {
         new getDets(shownM.get(groupPosition)).execute();
+        // wait for webcrawl to complete before proceeding (otherwise list will show
+        // before it has updated)
         while(done == false){}
         done = false;
         return false;
@@ -132,9 +129,11 @@ public class MovieListFragment extends Fragment implements ExpandableListView.On
         @Override
         protected Void doInBackground(Void... params) {
             done = false;
+            // if we haven't already run the webcrawl then run a parse algorithm to obtain usable
+            // URL for JSoup crawl (grab youtube link, poster, and details)
             if(m.synopsis.equals("")) {
                 try {
-                    String title = m.getTitle();
+                    String title = m.title;
                     title = title.replaceAll("\\*SUBTITLE SUNDAY\\* - ", "").replaceAll(":", "").replaceAll("'", "");
                     String[] t = title.split("[ ]+");
                     String convert = "";
@@ -148,15 +147,14 @@ public class MovieListFragment extends Fragment implements ExpandableListView.On
                         convert = convert.concat("-" + t[i]);
                     }
                     String url = "https://union.wisc.edu/events-and-activities/event-calendar/event/" + convert;
+                    //JSoup run on created url here
                     Document document = Jsoup.connect(url).get();
-                    Elements description = document.select("div[class=vevent] > p > span");
-                    m.setSynopsis(description.text());
-                    Elements img = document.select("li[class=remove-bottom] > img");
-                    m.setPoster(img.attr("src"));
-                    Elements yt = document.select("iframe");
-                    m.setLinkYT(yt.attr("src"));
-                    m.img = BitmapFactory.decodeStream(new URL("https://union.wisc.edu" + m.poster).openConnection().getInputStream());
-                    //adapter.setImg(m.img);
+                    Elements data = document.select("div[class=vevent] > p > span");
+                    m.synopsis = data.text();
+                    data = document.select("iframe");
+                    m.linkYT = data.attr("src");
+                    data = document.select("li[class=remove-bottom] > img");
+                    m.img = BitmapFactory.decodeStream(new URL("https://union.wisc.edu" + data.attr("src")).openConnection().getInputStream());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -167,6 +165,7 @@ public class MovieListFragment extends Fragment implements ExpandableListView.On
         }
 
         protected Void onPostExecute(){
+            //add elements grabbed to list for adapter
             MoviesDetails.get(m.title + "\n\n" + m.date + " " + m.showtime + " " + m.runtime).add(m.synopsis);
             MoviesDetails.get(m.title + "\n\n" + m.date + " " + m.showtime + " " + m.runtime).add(m.img);
             MoviesDetails.get(m.title + "\n\n" + m.date + " " + m.showtime + " " + m.runtime).add(m.linkYT);
